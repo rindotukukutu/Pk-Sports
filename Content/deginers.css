@@ -1,0 +1,71 @@
+.headers {
+   
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow:hidden;
+   
+    height: 180px;
+
+
+}
+.footers {
+   
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow:hidden;
+    background-color:cornflowerblue;
+    height: 30px;
+}
+.headers-center {
+    align-content:stretch;
+      align-items:center;
+        overflow:hidden;
+    float:right;
+   width:33.33%;
+       height:180px ;
+       color:white;
+      
+       
+    align-content:center;
+}
+.imgs {
+    width:100%;
+}
+.navbar1 {
+     left: 0;
+    right: 0;
+    bottom: 0;
+    overflow:hidden;
+    background-color:cornflowerblue;
+   width:100%;
+   height:50px;
+
+}
+.navbartab {
+     left: 0;
+    right: 0;
+    bottom: 0;
+    overflow:hidden;
+    float:left;
+    background-color:cornflowerblue;
+   width:14.28%;
+   height:50px;
+
+}
+.divforitems {
+    overflow:hidden;
+    float:left;
+   width:20%;
+   height:280px;
+   margin:2%;
+}
+.mainbodyforitems {
+
+ 
+    overflow:hidden;
+    align-content:center;
+   width:100%;
+   height:auto;
+}

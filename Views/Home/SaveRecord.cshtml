@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Orderd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Term_Project.Models;
+
+<div class=" container-fluid" style="margin:1% ">
+    <div class=" table-responsive " align="center">
+
+        <h1 style="color:white">Your Orders And Status </h1>
+
+        @if (Model != null)
+        {
+            <table border="1" class="table table-bordered" align="center" style="font-size:large;color:white ;font-family:'Al Qalam Quran Majeed Web'">
+                @{int sum = 0;}
+                <tr ><th>Item ID</th><th>Item Name</th><th>Price</th><td>Quantity</td><td>Sub total</td></tr>
+                @foreach (item v in Model)
+                {
+
+                    int suma = (@v.Quantity * @v.price);
+
+                    <tr><td>@v.Id</td><td>@v.Name</td><td>@v.price</td><td>@v.Quantity</td><td>@suma</td></tr>
+                    sum += suma;
+
+
+                }
+                <tr ><th>Total</th><th>@sum</th></tr>
+            </table>
+        }
+        
+            <button value="Add More"> @Html.ActionLink("Add More", "Index") </button>
+
+        
+    </div>
+
+</div>

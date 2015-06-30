@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "SalesIndex";
+    Layout = "~/Views/Shared/AdminViewS.cshtml";
+    }
+<h2>Sales</h2>
+
+@using Term_Project.Models;
+
+<h4>@(ViewBag.UpdateSale)</h4>
+<div></div>
+@(ViewBag.UpdateSale = null);
+
+<table border="1" align="center" style="padding:4px;font-size:large;color;font-family:'Al Qalam Quran Majeed Web'">
+   
+    <tr><th style="padding:4px">Sale  ID</th><th style="padding:4px">Item Id</th><th style="padding:4px">User Name</th><th style="padding:4px">Quatity </th><th style="padding:4px">Status </th><th style="padding:4px">Edit</th><th style="padding:4px">Delete</th></tr>
+    @foreach (Sale_ v in Model)
+    {
+        <tr><th style ="padding:6px">@v.Id</th><th style="padding:6px">@v.itemId</th><th style="padding:6px">@v.userId</th><td style="padding:6px">@v.quntity</td><th style="padding:4px">@v.deliverySta </th><th style="padding:6px">@Html.ActionLink("Edit", "EditSale", new { id = v.Id })</th><th style="padding:6px">@Html.ActionLink("Delete", "DeleteSale", new { id = v.Id })</th></tr>
+    }
+    
+</table>
+        }

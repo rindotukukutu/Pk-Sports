@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "UpdateItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Term_Project.Models;
+<h2 style="color:white">Update Item</h2>
+
+    <div class="mainbodyforitems" align="center">
+
+
+
+        @if (Model != null)
+        {
+            foreach (item v in Model)
+            {
+                <br />
+                <br />
+
+                <div style="width:30%">
+                    <img src="@(v.Pic)" height="200" class="imgs" id="1-img">
+                    <b> <span style="color:white"> Price :<span id="1-P">@(v.price) &nbsp &nbsp Quantity : @(v.Quantity)  </span></span></b>
+                    <p class="alert-info" style="font:medium">@v.Dscription_</p>
+
+
+                    <br />
+                    <br />
+
+
+
+                    <form action="/Admin/updateAdded" method="post" enctype="multipart/form-data">
+                        <div>
+                            <input type="hidden" class="form-control" name="Id" value=@v.Id />
+                            <input type="text" class="form-control" name="Name" value=@v.Name />
+                            <input type="text" class="form-control" name="Dscription_" value="@v.Dscription_" />
+                            @{List<SelectListItem> list = (List<SelectListItem>)Session["listCategory"];}
+                            @Html.DropDownList("catag", list, "--Select--")
+                            <input type="number" name="price" value=@v.price class="form-control" />
+                            <input type="number" name="Quantity" value="@v.Quantity" class="form-control" />
+                            <input type="file" name="image" value=@v.Pic class="form-control" />
+
+                            <input type="submit" value="Save update" />
+                        </div>
+
+                    </form>
+                </div>
+            }
+        }
+
+    </div>
+

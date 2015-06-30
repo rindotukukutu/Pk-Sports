@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+
+
+
+    function CheckAvail() {
+       // alert("Main Zinda Hon Abhi");
+        var userName = $('#userName').val();
+        if (userName != null)
+        {
+            $.getJSON("/home/CheckUserName?UserName=" + userName, function (data) {
+
+                if (data) {
+                    $('#result').text("User already exists in database");
+
+                }
+                else {
+                    $('#result').text("User Name is available");
+                }
+            });
+        }
+        $('#result').text("User Name Cann't be null");
+    }
+
+
+    function CheckAvail1() {
+        // alert("Main Zinda Hon Abhi");
+        var userName = $('#email').val();
+        if (userName != null) {
+            $.getJSON("/home/CheckUserEmail?UserName=" + userName, function (data) {
+
+                if (data) {
+                    $('#result1').text("Email already exists in database");
+
+                }
+                else {
+                    $('#result1').text("Email is available");
+                }
+            });
+        }
+        $('#result1').text("Email Cann't be null");
+    }
+        
+</script>
+
+    <div align="center" style="margin-left:20%;margin-right:20%">
+     
+        <br /><br /><br /><br /><br />
+        <form action="/Home/SignUped">
+            <div align="center" style="width:60%;color:white" >
+                <input type="text" name="fullName" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Full Name"  required/>
+                <input type="text" name="userName" onchange="CheckAvail()" id="userName" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="User Name" required /> 
+                 <div class="alert" id="result"></div>
+                <input type="password" name="password" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Password" required />
+                <input type="text" name="mobileNo" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Mobile No" required />
+                <input type="email" name="email" id="email" onchange="CheckAvail1()" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Email" required />
+                @*<input type="checkbox" onchange="CheckAvail()" id="btn-chekbox">*@
+                <div class="alert" id="result1"></div>
+                
+             </div>
+            <h4 style="color:white;font-family:Aparajita">BirthDay</h4>
+            <input type="date" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" />
+           
+            <h4 style="color:white;font-family:Aparajita">Gender</h4>
+            <div>
+                <input type="radio" name="radio" value="male" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" /><h5 style="color:white;font-family:Aparajita">Male</h5>
+                <input type="radio" name="radio" value="female" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" /><h5 style="color:white;font-family:Aparajita">Female</h5>
+            </div>
+
+              <input type="submit" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px;color: white;background-color: blue;font-family: monospace" value="Create Account" />
+        </form>
+    </div>
+

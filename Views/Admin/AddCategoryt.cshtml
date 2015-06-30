@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "AddCategoryt";
+    Layout = "~/Views/Shared/AdminViewS.cshtml";
+}
+@model List<Category>
+<h2>Add Category</h2>
+@using Term_Project.Models;
+
+<div class=" form-control">
+<table border="1" class="table-bordered">
+       <tr><th style="padding:10px">ID</th><th style="padding:10px">Name</th><</tr>
+    @foreach ( Category c in Model)
+    {
+        <tr><td style="padding:10px">@c.Id</td><td style="padding:10px"> @c.Name</td></tr>
+    }
+    
+</table>
+    <form action="/Admin/AddCategory" class=" form-control">
+        <input name="Name" placeholder="Category Name"/>
+    <input type="submit" >
+        </form>
+</div>

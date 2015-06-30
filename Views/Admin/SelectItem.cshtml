@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "SelectItem";
+}
+
+<h2>SelectItem</h2>
+<form action="/Admin/SearchResult">
+    <input type="text" name="Name" placeholder="Name Of Item" />
+    <input type="text" name="Id" placeholder="Id" />
+    <select name="category">
+        <option value="null">Select</option>
+        <option value="Hockey">Hockey</option>
+
+        <option value="Cricket">Cricket</option>
+        <option value="Football">Foot Ball</option>
+    </select>
+    <input type="submit" value="Search" />
+</form>

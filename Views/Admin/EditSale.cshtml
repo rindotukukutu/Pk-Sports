@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Edit Sale";
+    Layout = "~/Views/Shared/AdminViewS.cshtml";
+}
+@using Term_Project.Models;
+@model Term_Project.Models.Sale_
+           <div class="mainbodyforitems" style=" margin:4%">
+<h2>Edit Sale</h2>
+               <form action="/Admin/Editsaless" method="post" >
+                   <div>
+                       <table>
+                           <tr><th style="padding:4px">Sale  ID</th><th style="padding:4px">Item Id</th><th style="padding:4px">User Name</th><td style="padding:4px">Quatity </td><th style="padding:4px">Status </th></tr>
+
+                           <tr><th style="padding:6px">@Model.Id</th><th style="padding:6px">@Model.itemId</th><th style="padding:6px">@Model.userId</th><td style="padding:6px">@Model.quntity</td><th style="padding:4px">@Model.deliverySta </th></tr>
+
+                       </table>
+
+                   </div>
+                   @*@Html.BeginForm("EditStatus", "Admin", FormMethod.Post, new  {@class="form-control" }){*@
+                 
+                   <input type="hidden" name="Id" value=@(Model.Id) />
+                   <input type="text" name="deliverySta" value=@(Model.deliverySta) />
+
+                   @*@Html.TextBox("deliverySta", new {  })*@
+                   <input type="submit" value=" change" />
+              
+    </form>
+</div>

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/AdminViewS.cshtml";
+}
+@model user
+
+@using Term_Project.Models;
+<h2>EditUser</h2>
+<div class=" form-control" style="width:33%">
+    <form action="/Admin/Updateuser" method="post" enctype="multipart/form-data">
+        <label>@Model.userName </label>
+        <input type="hidden" class="form-control" name="userName" value=@Model.userName />
+        <input type="text" class="form-control" name="password" value=@Model.password />
+        <input type="text" class="form-control" name="fullName" value="@Model.fullName" />
+        
+        <input type="number" name="mobileNo" value=@Model.mobileNo class="form-control" />
+        <input type="email" name="email" value="@Model.email" class="form-control" />
+        <input type="text" name="email" value="@Model.type" class="form-control" />
+        
+        }
+    </form>
+</div>

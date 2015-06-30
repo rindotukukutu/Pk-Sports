@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/deginers.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container-fluid" style="width:100%">
+
+        <div>
+            <nav class="navbar navbar-inverse" role="navigation" style="background-color:black">
+                <div class="navbar-header">
+                    <i>
+                        <a href="/Home/Index" class="navbar-brand" style="background-color:black">PK Sports Shop </a>
+
+                    </i>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav pull-right " style="background-color:black">
+
+                        @if (Session["user"] == null)
+                        {
+
+                            <li><a href="/Home/login">Login </a></li>}
+                        else
+                        {
+                            <li><a href="/Home/Logout">Logout </a></li>}
+
+
+                        <li> <a href="/Admin/SignUp" class="active"> Add Admin </a></li>
+                        <li>
+                            @Html.ActionLink("Orders", "SalesIndex")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Items", "ItemIndex")
+                        </li>
+                        <li>
+                            @Html.ActionLink(" Users", "UserIndex")
+                        </li>
+                        <li>   @Html.ActionLink(" Categories", "AddCategoryt")</li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+    </div>
+    <div style="width:100%;height:auto">@RenderBody()</div>
+
+    <div class="modal-footer">Copyright &copy; 2015. A Design by Muhammad Umair Raza.</div>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

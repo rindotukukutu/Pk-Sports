@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/AdminViewS.cshtml";
+}
+
+<h2>Add User</h2>
+
+<div align="center" style="margin-left:20%;margin-right:20%">
+
+    @*<h1> <img src="~/Images/messi.JPG" class="img-rounded" width="400"></h1>*@
+
+
+    <br /><br /><br /><br /><br />
+    <form action="/Home/SignUped">
+        <div align="center" style="width:60%">
+            <input type="text" name="fullName" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Full Name" required />
+            <input type="text" name="userName" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="User Name" required />
+            <input type="password" name="password" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Password" required />
+            <input type="text" name="mobileNo" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Mobile No" required />
+            <input type="email" name="email" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" placeholder="Email" required />
+            <input type="hidden" name="type" class="form-control" value="Admin" />
+
+
+        </div>
+        <h4>BirthDay</h4>
+        <input type="date" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" />
+        <!-- <select id="Select1" style="margin-left: 15px;width: 25%" class="col-md-2 form-control">
+            <option>M</option>
+            <option>January</option>
+            <option>Faburuay</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+
+            <option>November</option>
+            <option>December</option>
+        </select>
+        <select id="Select2" style="margin-left: 15px;width: 25%" class="col-md-2 form-control">
+            <option>D</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+            <option>26</option>
+            <option>27</option>
+            <option>28</option>
+            <option>29</option>
+            <option>30</option>
+            <option>31</option>
+        </select>
+        <select id="Select2" style="margin-left: 15px;width: 25%" class="col-md-2 form-control">
+            <option>Y</option>
+            <option>210</option>
+            <option>2011</option>
+            <option>2012</option>
+            <option>2013</option>
+        </select>-->
+        <h4>Gender</h4>
+        <div>
+            <input type="radio" name="radio" value="male" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" /><h5>Male</h5>
+            <input type="radio" name="radio" value="female" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px" /><h5>Female</h5>
+        </div>
+
+        <input type="submit" class="form-control" style="width:40%;margin-left: 30%;margin-right: 30%;margin-bottom:6px;color: white;background-color: blue;font-family: monospace" value="Add Account" />
+    </form>
+</div>

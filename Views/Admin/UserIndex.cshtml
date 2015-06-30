@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "UserIndex";
+    Layout = "~/Views/Shared/AdminViewS.cshtml";
+}
+@model List<user>
+
+@using Term_Project.Models;
+<h2>UserIndex</h2>
+<div class="glyphicon-magnet">
+<table border="1" align="center" style="padding:4px;font-size:large;color;font-family:'Al Qalam Quran Majeed Web'">
+
+    <tr><th style="padding:4px">User Name</th><th style="padding:4px">Password</th><th style="padding:4px">Full Name</th><th style="padding:4px">Mobile No </th><th style="padding:4px">Email </th><th style="padding:4px">Account Type</th><th style="padding:4px">Edit</th><th style="padding:4px">Delete</th></tr>
+    @foreach (user v in Model)
+    {
+        <tr><th style="padding:6px">@v.userName</th><th style="padding:6px">@v.password</th><th style="padding:6px">@v.fullName</th><td style="padding:6px">@v.mobileNo</td><th style="padding:4px">@v.email </th><th style="padding:4px">@v.type </th><th style="padding:6px">@Html.ActionLink("Edit", "EditUser", new { id = v.userName })</th><th style="padding:6px">@Html.ActionLink("Delete", "DeleteUser", new { id = v.userName })</th></tr>
+    }
+
+</table>
+ </div>

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/deginers.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body style="background-color:black">
+    <div class="container-fluid" style="width:100%">
+     
+        <div>
+            <nav class="navbar navbar-inverse" role="navigation" style="background-color:whitesmoke;color:black">
+                <div class="navbar-header">
+                    <i>
+                        <a href="/Home/Index" class="navbar-brand" style="background-color:whitesmoke;color:black">PK Sports Shop </a>
+
+                    </i>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav pull-right " style="background-color:whitesmoke ;color:black">
+
+                        @if (Session["user"] == null)
+                        {
+                            <li> <a href="/Home/SignUp" class="active"> Sign Up </a></li>
+                            <li><a href="/Home/login">Login </a></li>}
+                        else
+                        {
+                            <li><a href="/Home/Logout">Logout </a></li>}
+                        <li><a href="/Home/Index" class="active">Items</a></li>
+                        @if (Session["user"] == null)
+                        {
+                            <li><a href="/Home/Cart" class="active">Cart</a></li>
+                        }
+                        <li><a href="/Home/ContactUs" class="active">Comments /Contact US </a></li>
+                        <li><a href="/Home/AboutUs" class="active">About Us </a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jssor.js"></script>
+    <script src="~/Scripts/jssor.slider.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script>
+
+    jQuery(document).ready(function ($) {
+        var options = {
+            pauseTime: 10,
+            $AutoPlay: true,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+            $DragOrientation: 1                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+        };
+
+        var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+    });
+    </script>
+
+    
+    <div  align="left" style="float:left;color:white;position: relative; top:0px;margin-bottom:10px; left: 15px; width:25%;
+        height: 300px;padding:25px;">
+        <h1 style="font-family:monospace"><i>PK Sports</i></h1>
+        <h4 style="font-family:monospace"><i>About your Choice</i></h4>
+        <ul style="list-style:none">
+           
+                <li> Quickest Delivery </li>
+                <li> Lowest Price </li>
+                <li> Best Quality </li>
+            
+        </ul>
+    </div>
+    <div id="slider1_container" style="float:right; position: relative; top:0px;margin-bottom:10px; right: 15px; width:75%;
+        height: 300px;">
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left:0px;right: 10px; bottom:10px; top: 0px; height: 300px;
+            overflow: hidden;">
+            <div><img class="img-rounded" u="image" src="/Images/0.jpg" /></div>
+           
+            <div><img class="img-rounded" u="image" src="/Images/fb (2).jpg" /></div>
+            
+            <div><img class="img-rounded" u="image" src="/Images/fb(4).jpg" /></div>
+         
+            <div><img class="img-rounded" u="image" src="/Images/fb (3).jpg" /></div>
+        </div>>
+
+
+    </div>
+
+
+
+        <div style="width:100%;height:auto">@RenderBody()</div>
+
+        <div class="modal-footer">Copyright &copy; 2015. A Design by Muhammad Umair Raza.</div>
+        
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

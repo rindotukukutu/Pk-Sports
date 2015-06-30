@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "AddItem";
+    
+}
+@model Term_Project.Models.item
+
+<div class="container-fluid" style="width:50%;height:600px" >
+    <h2>AddItem</h2>
+    <form action="/Admin/ItemAdded" method="post" enctype="multipart/form-data" class="form-control">
+       
+        <br>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name Of Item" })
+        @Html.TextBoxFor(m => m.Dscription_, new { @class = "form-control", placeholder = "Description" })
+        @Html.TextBoxFor(m => m.price, new { @class = "form-control", placeholder = "Price" })
+        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", placeholder = "Quantity" })
+        
+        
+        @{List<SelectListItem> list = (List<SelectListItem>)Session["listCategory"];}
+        @Html.DropDownListFor(M=>M.category, list, "--Select--")
+
+        @*<input type="text" class="form-control" name="Name" />
+        <input type="text" class="form-control" name="Dscription_" placeholder="Description" />
+        <input type="number" class="form-control" name="price" placeholder="Price" />
+        <input type="number" class="form-control" name="Quantity" placeholder="Quantity" />*@
+        <input type="file" class="form-control" name="image" />
+        <input type="submit" value="Save" class="form-control" />
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+    </form>
+</div>  
+
+<br>
+<br>
+<br>
+<br>

@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div align="center" style=";margin:1% ;margin-bottom:0"class=" container-fluid" >
+
+    
+
+    <div style="width:60%;height:700px"  class="pull-left">
+
+            <form action="/Home/CheckLogin" method="post">
+                <br/><br />
+                <br/><br />
+                <br/><br />
+            <input name="userName" type="text" class="form-control " placeholder=" UserName" style="width:25% ;margin:1%" /><br/>
+            <input name="password" type="password" class="form-control " placeholder="Password" style="width:25%;margin:1%" /><br />
+            <input type="submit" class="form-control " style="width:25%;color: white;margin:1%;background-color: darkblue;font-family: monospace" value="Sign In"  /><br />
+            <a href="/Home/SignUp"><input type="button" class="form-control" style="width:25%;margin:1%;color: white;background-color: blue;font-family: monospace" value="Create Account" /></a><br />
+
+    </form>
+</div>
+</div>

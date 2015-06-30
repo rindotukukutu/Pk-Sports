@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "ItemIndex";
+    Layout = "~/Views/Shared/AdminViewS.cshtml";
+}
+
+@using Term_Project.Models;
+@using System.Collections.Generic;
+@model  List<item>
+@*@model       Term_Project.Models.*@
+
+<script>
+
+   function Myfunction()
+   {
+      // debugger;
+        var value = $('minprice').val();
+        var value2 = $('maxprice').val();
+        if (value == null)
+            $('minprice').val(0);
+        if (value2 == null)
+            $('maxprice').val(2147483647);
+
+    }
+</script>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div class="container-fluid" style="width:100% " align="center">
+    <form action="/Admin/SerchByNCP" class="form-control">
+        <input type="text" name="Name" placeholder="Name Of Item" id="names" />
+        <input type="text" name="Minprice" placeholder="Mini Price " id="minprice" />
+        <input type="text" name="Maxprice" placeholder="Max Price " id="maxprice" />
+        @*Html.BeginForm("SerchByNCP", "Home", FormMethod.Post, new  {@class="form-control" })
+            @Html.TextBox("names","", htmlAttributes: new { @placepholder = "Name Of Item" })
+            @Html.TextBox("minprice","",htmlAttributes: new {@placepholder = "Minimum Price"})
+            @Html.TextBox("minprice", "", htmlAttributes: new { @placepholder = "Maximum Price" })*@
+        @*<select name="category" id="catag">
+                <option value="null">Select</option>
+                <option value="Hockey">Hockey</option>
+                <option value="Cricket">Cricket</option>
+                <option value="Football">Foot Ball</option>
+            </select>*@
+        @{List<SelectListItem> list = (List<SelectListItem>)Session["listCategory"];}
+        @Html.DropDownList("catag", list, "--Select--")
+        <input type="submit" value="search">
+        <button class="btn-toolbar">@Html.ActionLink("Add Item", "AddItem", new { @class = "btn-group-justified" })</button>
+    </form>
+</div>
+
+<div class="form-control" style="width:100% ">
+    
+    <div class=" container-fluid" style="margin:1%">
+        @if (Model != null)
+        {
+            <div class="mainbodyforitems" align="center" id="body">
+
+                @for (int i = 1; i < 10 && i <= Model.Count; i++)
+                {
+
+                    item v = Model[i - 1];
+                    <form action="/Admin/DeleteUpdate" method="post">
+                        <div class="divforitems" id=@i>
+                            <img src="@(v.Pic)" height="180" class="imgs" id=@(i+"img")>
+                            <b> <span style="color:black"> Price :<span id=@(i+"Price")>@v.price </span> &nbsp &nbsp Quantity :<span id=@(i+"Price")> @v.Quantity   </span></span></b>
+                            <p class="alert-info" id=@(i+"Des")>@v.Dscription_</p>
+                            <input type="hidden" value=@(v.Id) name="Id" id=@(i+"Id")>
+
+                            <button>@Html.ActionLink("Edit Item", "UpdateItem", new { id = @v.Id })</button>
+                            <input type="submit" value="Delete Item">
+                        </div>
+                    </form>
+                }
+
+            </div>
+        }
+        else
+        {
+            <h5>No Item  Right Now Please try later</h5>
+        }
+    </div>
+
+
+</div>
+
